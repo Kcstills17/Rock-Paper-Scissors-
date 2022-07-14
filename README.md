@@ -1,2 +1,2 @@
 # Rock-Paper-Scissors-
-A JS project that plays the game rock paper scissors in with prompts/ 
+A JS project that plays the game rock paper scissors in the console/ 
