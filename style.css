@@ -1,0 +1,78 @@
+#game {
+ display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+
+.Images {
+    display:flex; 
+    align-items:center;
+    justify-content: center;
+    gap: 100px;
+}
+
+#buttons {
+    display:flex;
+    justify-content: center;
+    gap:400px
+}
+
+
+
+.button-rock {
+ background-color:blue;
+ color:lightgreen;
+}
+
+.button-scissors{
+    background-color: red;
+    color:yellow; 
+}
+
+.button-paper { 
+    background-color: aquamarine;
+    color:blueviolet;
+}
+
+.score {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin:50px;
+
+}
+
+.button-score {
+    width: 500px;
+    height: 50px;
+    background-color:navy;
+    
+
+}
+.score {
+    font-family: 'Times New Roman', Times, serif;
+    background-color:rgb(45, 28, 196);
+    width:500px;
+    height:100px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto; 
+    margin-top: 50px;
+}
+
+.gameEnd {
+    background-color:green; 
+    display:flex; 
+    color:blue; 
+    margin:0 auto;
+    margin-top:50px;
+    width:500px;
+    height:100px;
+    align-content:center;
+    justify-content: center;
+    
+}

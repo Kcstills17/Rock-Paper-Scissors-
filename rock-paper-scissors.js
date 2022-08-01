@@ -37,7 +37,7 @@ let randomChoice = choices[Math.floor(Math.random() * choices.length)];
 }
 
  
-const playerSelection = prompt("Rock, Papers, or Scissors?")
+
 
 const computerSelection = computerPlay();
 
@@ -45,11 +45,11 @@ const computerSelection = computerPlay();
 
 const game = function() {
  
-  for (let i = 0; i < 5; i++) 
+  
   {
-    const playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
+    const playerSelection = ("Rock, Paper, or Scissors?").toLowerCase();
     const computerSelection = computerPlay();
-    console.log(playerScore,computerScore, playRound(playerSelection, computerSelection));
+    (playerScore,computerScore, playRound(playerSelection, computerSelection));
   }
 
  if (playerScore > computerScore) {
@@ -60,6 +60,56 @@ const game = function() {
    return "a Tie? C'mon Guys";
  }
 }
+
+
+
+let btn = document.querySelector("#buttons");
+
+btn.addEventListener('click', e => {
+  
+  const scoreTally = document.createElement("div");
+scoreTally.classList.add('score');
+ score = document.body.appendChild(scoreTally);
+ scoreBtn = document.createElement('button');
+ appendScoreBtn = scoreTally.appendChild(scoreBtn);
+ scoreBtn.style.width = "500px";
+ scoreBtn.style.height = "200px";
+ scoreBtn.style.backgroundColor = "navy";
+ 
+ 
+}, 
+{once:true}
+ 
+)
+
+
+
+btn.addEventListener('click', e => {
+  const playerSelection = e.target.innerText.toLowerCase(); 
+  const computerSelection = computerPlay();
+  console.log(playerScore,computerScore, playRound(playerSelection, computerSelection));
+score.innerHTML = `you chose ${playerSelection} <br> the opponent chooses ${computerSelection} <br> your score = ${playerScore} <br> the opponent's score = ${computerScore}`
+if (playerScore >= 5) {
+    const gameEnd = document.createElement('div'); 
+    gameEnd.classList.add('gameEnd')
+     appendGameEnd = document.body.appendChild(gameEnd)
+     gameEnd.innerHTML = `you've defeated the opponenet with a score of ${playerScore} to ${computerScore};`
+     gameEnd.style.color = 'red';
+} else if (computerScore >= 5) {
+  const gameEnd = document.createElement('div'); 
+     gameEnd.classList.add('gameEnd')
+     appendGameEnd = document.body.appendChild(gameEnd)
+     gameEnd.innerHTML = `you've lost to your opponent by the score of  ${playerScore} to ${computerScore};`
+     
+}
+
+}
+
+
+ 
+)
+
+
 console.log(game());
  
  
