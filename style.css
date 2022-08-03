@@ -1,7 +1,19 @@
+body {
+    background-color:pink
+}
+
+
+#important-content {
+    background-color:blueviolet;
+    margin:-15px;
+    padding:0px; 
+}
+
 #game {
  display: flex;
 align-items: center;
 justify-content: center;
+
 
 }
 
@@ -21,27 +33,76 @@ justify-content: center;
 
 
 
-.button-rock {
- background-color:blue;
+#rock {
+    background-color: black;
  color:lightgreen;
+ border-radius:20px;
+ width:100px;
+ height:50px;
+ margin-top:35px;
+ top: -5px;
+ right: -5px;
+ bottom: -5px;
+ left: -5px;
+}
+#rock:first-child:hover {
+background:linear-gradient(90deg, #03a9f4, #f441af, pink,  #03a9f4 );
 }
 
-.button-scissors{
-    background-color: red;
-    color:yellow; 
+
+
+
+
+#scissors{
+background-color: black;
+color:yellow; 
+border-radius: 20px;
+width:100px;
+height:50px;
+margin-top:35px;
+top: -5px;
+right: -5px;
+bottom: -5px;
+left: -5px;
+
 }
 
-.button-paper { 
-    background-color: aquamarine;
-    color:blueviolet;
+#scissors:first-child:hover {
+    background:linear-gradient(90deg, navy, powderblue, aqua,  lime );
+    }
+    
+
+#paper { 
+left: -5px;
+background-color: black;
+color:blueviolet;
+border-radius: 20px;
+width:100px;
+height:50px;
+margin-top:35px;
+top: -5px;
+right: -5px;
+bottom: -5px;
+left: -5px;
 }
+
+#paper:first-child:hover {
+    background:linear-gradient(90deg, crimson, violet, gold, silver );
+    }
+    
+    
 
 .score {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    margin:50px;
-
+display:flex;
+align-items: center;
+justify-content: center;
+margin-top:50px;
+border-radius: 35px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+border:25px;
+border-color: aqua;  
+border-style: groove;
+color: forestgreen;
 }
 
 .button-score {
@@ -53,10 +114,13 @@ justify-content: center;
 }
 .score {
     font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
     background-color:rgb(45, 28, 196);
+    color:aqua;
     width:500px;
     height:100px;
     display: flex;
+    position: relative; right:350px;
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -65,14 +129,45 @@ justify-content: center;
 }
 
 .gameEnd {
-    background-color:green; 
+    background-color:teal; 
+    border-radius: 45px;
+    border: 20px;
+    border-color: powderblue;
+    border-style:ridge;
     display:flex; 
-    color:blue; 
+    flex-wrap:wrap;
+    position: relative; left:300px; bottom: 200px;
+    color:red; 
     margin:0 auto;
     margin-top:50px;
     width:500px;
     height:100px;
     align-content:center;
     justify-content: center;
+    font-size: 20px;
     
+}
+
+.playAgain {
+    display:flex; 
+    align-content:flex-end; 
+    justify-content:flex-end;
+    position: relative; right:850px; bottom:150px
+     
+
+}
+.playAgainBtn {
+    display:flex; 
+    flex-wrap: wrap;
+    align-content:flex-end; 
+    justify-content: center;
+    border-radius: 50px;
+    font-size: 20px;
+    height:50px;
+    width:250px;
+    margin-bottom:500px
+}
+.playAgainBtn:first-child:hover {
+    background:linear-gradient( 90deg, rgba(89, 5, 245, 0.726), rgb(14, 196, 252), rgb(177, 8, 8), rgb(238, 24, 220));
+    color:white;
 }

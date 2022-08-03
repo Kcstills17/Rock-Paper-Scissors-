@@ -36,81 +36,90 @@ let randomChoice = choices[Math.floor(Math.random() * choices.length)];
  return (`${randomChoice}`);
 }
 
- 
-
 
 const computerSelection = computerPlay();
 
-   
+const scoreBoard = () =>  {
+  const scoreTally = document.createElement("div");
+scoreTally.classList.add('score');
+ score = document.body.appendChild(scoreTally);
+}
 
-const game = function() {
- 
+const result = (e) => {
+  console.log(e.target); 
+  const playerSelection = e.target.innerText.toLowerCase(); 
+  const computerSelection = computerPlay();
+  console.log(playerScore,computerScore, playRound(playerSelection, computerSelection));
   
-  {
-    const playerSelection = ("Rock, Paper, or Scissors?").toLowerCase();
-    const computerSelection = computerPlay();
-    (playerScore,computerScore, playRound(playerSelection, computerSelection));
-  }
 
- if (playerScore > computerScore) {
-   return "Congratulations! You are the Rock Paper Scissors Champ!!!"
- } else if (playerScore < computerScore) {
-   return "You have lost the game. Please try again some other time. "
- } else {
-   return "a Tie? C'mon Guys";
- }
+  
+  score.innerHTML = `You chose ${playerSelection} <br> The opponent chooses ${computerSelection} <br> Your score = ${playerScore} <br> The opponent's score = ${computerScore}`
+
+   if (playerScore == 5  && computerScore < 5 || computerScore == 5 && playerScore < 5 ) {
+  score.innerHTML = "Game Over!!!!";
+    const gameEnd = document.createElement('div'); 
+    gameEnd.classList.add('gameEnd')
+     appendGameEnd = document.body.appendChild(gameEnd)
+     
+     rock.setAttribute('disabled', 'disabled')
+     paper.setAttribute('disabled', 'disabled')
+     scissors.setAttribute('disabled', 'disabled');
+     if(playerScore > computerScore) {
+      gameEnd.innerHTML = `you've defeated the opponenet with a score of ${playerScore} to ${computerScore};`
+      gameEnd.style.color = 'aqua';
+      const playAgain = document.createElement('div');
+      playAgain.classList.add('playAgain');
+      playAgainBtn = document.createElement('button');
+      playAgainBtn.classList.add('playAgainBtn')
+      document.body.appendChild(playAgain);
+      playAgain.appendChild(playAgainBtn);
+      playAgainBtn.style.backgroundColor = "navy";
+      playAgainBtn.style.color = 'aqua';
+      playAgainBtn.innerText = "Congratulations!! Want to run it back?"
+
+     } else {
+      gameEnd.innerHTML = `you've lost to your opponent ${computerScore} to ${playerScore};`
+      gameEnd.style.color = 'crimson';
+      gameEnd.style.backgroundColor = 'black';
+      gameEnd.style.borderColor = "crimson";
+      const playAgain = document.createElement('div');
+      playAgain.classList.add('playAgain');
+      playAgainBtn = document.createElement('button');
+      playAgainBtn.classList.add('playAgainBtn')
+      document.body.appendChild(playAgain);
+      playAgain.appendChild(playAgainBtn);
+      playAgainBtn.innerText = "Better Luck next time. Play Again?"
+      playAgainBtn.style.color = 'red'
+      playAgainBtn.style.backgroundColor = "black";
+
+     }
+
+
+     
+     
+  
+}
 }
 
 
 
 let btn = document.querySelector("#buttons");
 
-btn.addEventListener('click', e => {
+btn.addEventListener('click', scoreBoard, {once:true})
+ // event listner that used the scoreBoard function as a callback so we can remove it later. 
+// below we use function(e) in the parameters and then result(e) within because in the function result there is a e.target variable that is not connected to e in this event listener. By using this syntax we combine the two e event listeners and we are able to callback the function. 
+btn.addEventListener('click', function(e){
+  result(e);
+  e.stopPropagation();
+ 
+})
+
+playAgainBtn.addEventListener('click', e=> {
+  document.location.reload = true; 
+})
   
-  const scoreTally = document.createElement("div");
-scoreTally.classList.add('score');
- score = document.body.appendChild(scoreTally);
- scoreBtn = document.createElement('button');
- appendScoreBtn = scoreTally.appendChild(scoreBtn);
- scoreBtn.style.width = "500px";
- scoreBtn.style.height = "200px";
- scoreBtn.style.backgroundColor = "navy";
- 
- 
-}, 
-{once:true}
- 
-)
 
 
-
-btn.addEventListener('click', e => {
-  const playerSelection = e.target.innerText.toLowerCase(); 
-  const computerSelection = computerPlay();
-  console.log(playerScore,computerScore, playRound(playerSelection, computerSelection));
-score.innerHTML = `you chose ${playerSelection} <br> the opponent chooses ${computerSelection} <br> your score = ${playerScore} <br> the opponent's score = ${computerScore}`
-if (playerScore >= 5) {
-    const gameEnd = document.createElement('div'); 
-    gameEnd.classList.add('gameEnd')
-     appendGameEnd = document.body.appendChild(gameEnd)
-     gameEnd.innerHTML = `you've defeated the opponenet with a score of ${playerScore} to ${computerScore};`
-     gameEnd.style.color = 'red';
-} else if (computerScore >= 5) {
-  const gameEnd = document.createElement('div'); 
-     gameEnd.classList.add('gameEnd')
-     appendGameEnd = document.body.appendChild(gameEnd)
-     gameEnd.innerHTML = `you've lost to your opponent by the score of  ${playerScore} to ${computerScore};`
-     
-}
-
-}
-
-
- 
-)
-
-
-console.log(game());
  
  
 
